@@ -68,7 +68,7 @@ orderCollection.insertOne(req.body)
       const result= await orderCollection.deleteOne({
         _id:(req.params.id),
       });
-      console.log(result);
+      res.send(result);
 
     })
 

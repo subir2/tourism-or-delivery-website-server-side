@@ -25,6 +25,7 @@ app.get('/',(req,res)=>{
 client.connect(err => {
   const productCollection = client.db("tourism").collection("products");
   const orderCollection = client.db("tourism_2").collection("orders");
+  const confirmorderCollection = client.db("tourism_3").collection("confirmsorder");
 
   app.post('/addProducts',(req,res)=>{
     productCollection.insertOne(req.body)
@@ -72,6 +73,15 @@ orderCollection.insertOne(req.body)
 
     })
 
+    //
+
+      //add order
+  app.post("/allorderconfirm",(req,res)=>{
+    // console.log(req.body);
+    confirmorderCollection.insertOne(req.body)
+    .then(result=>res.send(result));
+      });
+    
 
    
 

@@ -55,6 +55,14 @@ orderCollection.insertOne(req.body)
     
     });
 
+   
+    app.get('/allorder',async(req,res)=>{
+      const result=await orderCollection.find({}).toArray();
+      res.send(result);
+      
+      });
+    
+
     app.delete("/deleteorder/:id",async(req,res)=>{
       console.log(req.params.id);
       const result= await orderCollection.deleteOne({
